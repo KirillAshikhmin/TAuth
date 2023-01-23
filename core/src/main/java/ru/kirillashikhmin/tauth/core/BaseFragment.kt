@@ -3,12 +3,9 @@ package ru.kirillashikhmin.tauth.core
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
-import com.arrival.traceability2.core.ui.dialogs.DialogResolver
-import kotlinx.coroutines.flow.Flow
+import ru.kirillashikhmin.tauth.core.ui.dialogs.DialogResolver
 import me.aartikov.sesame.property.PropertyObserver
 import ru.kirillashikhmin.tauth.core.helpers.BackPressedInterceptor
 import ru.kirillashikhmin.tauth.core.helpers.toMap

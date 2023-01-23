@@ -11,13 +11,17 @@ android {
 
     defaultConfig {
         minSdk = AndroidConfig.minSdkVersion
-        targetSdk = AndroidConfig.targetSdkVersion
         vectorDrawables.useSupportLibrary = true
     }
 
     buildFeatures {
+        compose = true
         buildConfig = true
         viewBinding = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
 
     compileOptions {
@@ -34,13 +38,32 @@ android {
 
 
 dependencies {
-    implementation(project(":common"))
-    implementation("com.google.android.material:material:1.7.0")
+    implementation(projects.common)
+    implementation("com.google.android.material:material:1.7.0")//For Material DateTime dialog
 
     coreLibraryDesugaring(libs.desugar)
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlin.jdk8)
+
+
+    implementation(libs.activitycompose)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.compose.material3)
+    debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.test.manifest)
+    implementation(libs.navigation.compose)
+
+    implementation(libs.hiltandroid)
+    kapt(libs.hiltcompiler)
+    kapt(libs.kotlinxmetadata)
+
+    implementation(libs.hilt.navigation.compose)
+
+    implementation(libs.orbit.core)
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
 
     implementation(libs.datetime)
 

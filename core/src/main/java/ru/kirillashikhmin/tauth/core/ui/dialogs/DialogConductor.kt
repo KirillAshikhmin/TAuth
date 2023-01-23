@@ -2,8 +2,6 @@ package ru.kirillashikhmin.tauth.core.ui.dialogs
 
 import ru.kirillashikhmin.tauth.core.DialogTypes
 import ru.kirillashikhmin.tauth.core.helpers.tryGetValue
-import com.arrival.traceability2.core.ui.dialogs.DialogResolver
-import com.arrival.traceability2.core.ui.dialogs.DialogResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.suspendCancellableCoroutine
 import me.aartikov.sesame.localizedstring.LocalizedString

@@ -12,7 +12,7 @@ object LoggerImpl : ILoggable {
     init {
         LogMerger.loggers.add(FlowLogger())
         LogMerger.loggers.add(TimberLogger())
-        LogMerger.loggers.add(PrettyLogger())
+        //LogMerger.loggers.add(PrettyLogger())
     }
 
     override fun d(tag: String, message: String) {

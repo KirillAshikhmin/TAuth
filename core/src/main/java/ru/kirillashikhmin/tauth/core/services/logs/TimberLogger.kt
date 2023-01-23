@@ -3,11 +3,13 @@ package ru.kirillashikhmin.tauth.core.services.logs
 import timber.log.Timber
 import ru.kirillashikhmin.tauth.common.ILoggable
 import ru.kirillashikhmin.tauth.core.services.logs.timber.CrashReportingTree
+import ru.kirillashikhmin.tauth.core.services.logs.timber.PrettyLoggingTree
 
 internal class TimberLogger : ILoggable {
     companion object {
         init {
             Timber.plant(CrashReportingTree())
+            Timber.plant(PrettyLoggingTree())
         }
     }
 

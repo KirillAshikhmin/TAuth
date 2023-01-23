@@ -1,8 +1,10 @@
 package ru.kirillashikhmin.tauth
 
+import dagger.hilt.android.HiltAndroidApp
 import ru.kirillashikhmin.tauth.common.Logger
 import ru.kirillashikhmin.tauth.core.BaseApplication
 
+@HiltAndroidApp
 class TAuthApplication : BaseApplication() {
 
     override fun onCreate() {

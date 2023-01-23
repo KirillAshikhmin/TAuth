@@ -2,8 +2,6 @@ package ru.kirillashikhmin.tauth.core.ui.dialogs
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
-import com.arrival.traceability2.core.ui.dialogs.DialogResolver
-import com.arrival.traceability2.core.ui.dialogs.DialogResult
 import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone

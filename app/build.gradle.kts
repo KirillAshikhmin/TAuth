@@ -5,7 +5,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     kotlin("plugin.parcelize")
-    id("dagger.hilt.android.plugin")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -94,33 +94,22 @@ android {
         checkReleaseBuilds = false
         abortOnError = false
     }
-    namespace = "ru.kirillashikhmin.tauth"
-}
-
-tasks.whenTaskAdded {
-    if (this.name.contains("assembleRelease")) {
-        this.doLast {
-            val release =
-                android.applicationVariants.firstOrNull { v -> v.buildType.name == "release" }
-                    ?: return@doLast
-            val output = release.outputs.firstOrNull() ?: return@doLast
-
-            val json =
-                "{\"version\":\"${release.versionName}\",\"build\":\"${release.versionCode}\",\"link\":\"https://update.dev.trac.i.adt.arrival.co/Traceability_${release.versionName}.apk\"}"
-            val file = File(output.outputFile.parent, "update.json")
-            file.writeText(json)
-            val apk = File(output.outputFile.parent, output.outputFile.name)
-            val apkNew = File(output.outputFile.parent, "Traceability_${release.versionName}.apk")
-            apk.renameTo(apkNew)
-        }
+    kapt {
+        correctErrorTypes = true
     }
+
+
+    namespace = "ru.kirillashikhmin.tauth"
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(project(":common"))
-    implementation(project(":core"))
+    implementation(projects.common)
+    implementation(projects.core)
+    implementation(projects.shared)
+
+    implementation(projects.features.main)
 
     coreLibraryDesugaring(libs.desugar)
 
@@ -139,23 +128,6 @@ dependencies {
     implementation(libs.serialization.core)
 
 
-/*
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    implementation 'androidx.activity:activity-compose:1.6.1'
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.compose.material3:material3:1.0.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
-    implementation "androidx.navigation:navigation-compose:2.5.3"
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
-*/
-
     implementation(libs.activitycompose)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
@@ -163,6 +135,12 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
     implementation(libs.navigation.compose)
+
+    implementation(libs.hilt.navigation.compose)
+
+    implementation(libs.orbit.core)
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
 
     implementation(libs.androidxcore)
     implementation(libs.appcompat)
@@ -186,6 +164,4 @@ dependencies {
 
     implementation(libs.sesame.property)
     implementation(libs.sesame.localized)
-
-
 }

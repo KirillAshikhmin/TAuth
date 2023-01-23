@@ -1,7 +1,7 @@
 @file:Suppress("unused")
 @file:OptIn(ExperimentalContracts::class)
 
-package com.arrival.traceability2.core.ui.dialogs
+package ru.kirillashikhmin.tauth.core.ui.dialogs
 
 import kotlinx.datetime.LocalDateTime
 import kotlin.contracts.ExperimentalContracts

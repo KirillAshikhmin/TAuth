@@ -1,4 +1,4 @@
-package com.arrival.traceability2.core.ui.dialogs
+package ru.kirillashikhmin.tauth.core.ui.dialogs
 
 import android.os.Bundle
 import android.util.TypedValue
@@ -8,7 +8,6 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.FragmentManager
-import ru.kirillashikhmin.tauth.core.ui.dialogs.AppDialogFragment
 
 class TextDialogFragment : AppDialogFragment() {
     private var text: String? = null

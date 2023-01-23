@@ -59,6 +59,7 @@ fun Bundle.toMap(map: Map<String, Any> = mapOf()): Map<String, Any> {
     if (iterator != null) {
         while (iterator.hasNext()) {
             val k = iterator.next()
+            @Suppress("DEPRECATION")
             val v = this[k]
             if (v != null) {
                 mutableMap[k] = v

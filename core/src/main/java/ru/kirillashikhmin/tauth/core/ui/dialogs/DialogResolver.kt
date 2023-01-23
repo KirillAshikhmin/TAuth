@@ -1,4 +1,4 @@
-package com.arrival.traceability2.core.ui.dialogs
+package ru.kirillashikhmin.tauth.core.ui.dialogs
 
 import android.content.Context
 import android.widget.Toast
@@ -8,9 +8,6 @@ import androidx.fragment.app.FragmentManager
 import ru.kirillashikhmin.tauth.core.DialogTypes
 import ru.kirillashikhmin.tauth.core.helpers.tryGetValue
 import me.aartikov.sesame.localizedstring.LocalizedString
-import ru.kirillashikhmin.tauth.core.ui.dialogs.AppDialogFragment
-import ru.kirillashikhmin.tauth.core.ui.dialogs.DatePickerDialog
-import ru.kirillashikhmin.tauth.core.ui.dialogs.LoadingDialogFragment
 
 
 class DialogResolver(private val context: Context, private val fragmentManager: FragmentManager) {

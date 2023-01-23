@@ -10,8 +10,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.arrival.traceability2.core.ui.dialogs.DialogResolver
-import com.arrival.traceability2.core.ui.dialogs.DialogResult
 import ru.kirillashikhmin.tauth.core.BaseFragment
 import java.util.*
 
